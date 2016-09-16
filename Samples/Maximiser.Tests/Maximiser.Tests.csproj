@@ -70,6 +70,7 @@
   <ItemGroup>
     <Compile Include="MaximumTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReverserTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

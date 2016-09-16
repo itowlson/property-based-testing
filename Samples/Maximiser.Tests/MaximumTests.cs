@@ -18,6 +18,18 @@ namespace Maximiser.Tests
             Assert.Equal(3, Maximum.MaxValue(new[] { 3, 0, 0 }));
         }
 
+        [Fact]
+        public void MaxOfEmptyCollectionThrows()
+        {
+            Assert.Throws<ArgumentException>(() => Maximum.MaxValue(new int[0]));
+        }
+
+        [Fact]
+        public void MaxOfNullThrows()
+        {
+            Assert.Throws<ArgumentNullException>(() => Maximum.MaxValue(null));
+        }
+
         // Property-based tests
 
         [Property]

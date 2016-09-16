@@ -10,6 +10,15 @@ namespace Maximiser
     {
         public static int MaxValue(IEnumerable<int> values)
         {
+            if (values == null)
+            {
+                throw new ArgumentNullException(nameof(values));
+            }
+            if (!values.Any())
+            {
+                throw new ArgumentException($"{nameof(values)} must not be empty", nameof(values));
+            }
+
             // Bad implementation 1
             //return values.First();
 

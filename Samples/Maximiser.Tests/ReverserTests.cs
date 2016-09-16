@@ -10,6 +10,7 @@ namespace Maximiser.Tests
 {
     public class ReverserTests
     {
+        // len("abc") == len("cba") == len(R("abc"))
         [Property]
         public void ReversedListIsSameLengthAsOriginal(List<int> values)
         {
@@ -17,6 +18,7 @@ namespace Maximiser.Tests
             Assert.Equal(values.Count, reversed.Count);
         }
 
+        // R(R("abc")) == R("cba") == "abc"
         [Property]
         public void TheReverseOfTheReverseIsTheOriginalList(List<int> values)
         {
@@ -24,6 +26,7 @@ namespace Maximiser.Tests
             Assert.Equal(values, reversedTwice);
         }
 
+        // "abc" ++ R("abc") == "abc" ++ "cba" == "abccba", R("abccba") == itself
         [Property]
         public void AListFollowedByItsReverseIsPalindromic(List<int> values)
         {
@@ -33,6 +36,7 @@ namespace Maximiser.Tests
             Assert.Equal(both, Reverser.Reverse(both));
         }
 
+        // R("abc" ++ "def") == R("abcdef") == "fedcba" == "fed" ++ "cba" == R("def") ++ R("abc")
         [Property]
         public void ReversingTheConcatOfTwoListsIsEquivalentToConcattingTheReversesInTheOppositeOrder(List<int> values1, List<int> values2)
         {

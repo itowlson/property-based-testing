@@ -34,6 +34,19 @@ namespace Maximiser.Tests
         }
 
         [Property]
+        public void ReversingTheConcatOfTwoListsIsEquivalentToConcattingTheReversesInTheOppositeOrder(List<int> values1, List<int> values2)
+        {
+            var concat = values1.Concat(values2).ToList();
+            var revConcat = Reverser.Reverse(concat);
+
+            var rev1 = Reverser.Reverse(values1);
+            var rev2 = Reverser.Reverse(values2);
+            var concatRevs = rev2.Concat(rev1);
+
+            Assert.Equal(concatRevs, revConcat);
+        }
+
+        [Property]
         public void EachElementIsTheSameDistanceFromTheEndAsItWasFromTheStart(List<int> values)
         {
             var reversed = Reverser.Reverse(values);

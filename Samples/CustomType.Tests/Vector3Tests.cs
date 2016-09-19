@@ -14,21 +14,21 @@ namespace CustomType.Tests
         [Property]
         public void VectorLengthIsNonNegative(Vector3 vector)
         {
-            CompareAssert.GreaterThanOrEqual(0, vector.Length);
+            CompareAssert.Assert(vector.Length).IsGreaterThanOrEqualTo(0);
         }
 
         [Property]
         public void VectorLengthIsAtLeastAsGreatAsAnyComponent(Vector3 vector)
         {
-            CompareAssert.GreaterThanOrEqual(vector.X, vector.Length);
-            CompareAssert.GreaterThanOrEqual(vector.Y, vector.Length);
-            CompareAssert.GreaterThanOrEqual(vector.Z, vector.Length);
+            CompareAssert.Assert(vector.Length).IsGreaterThanOrEqualTo(vector.X);
+            CompareAssert.Assert(vector.Length).IsGreaterThanOrEqualTo(vector.Y);
+            CompareAssert.Assert(vector.Length).IsGreaterThanOrEqualTo(vector.Z);
         }
 
         [Property]
         public void TriangleInequalityHolds(Vector3 first, Vector3 second)
         {
-            CompareAssert.LessThanOrEqual(first.Length + second.Length, (first + second).Length);
+            CompareAssert.Assert((first + second).Length).IsLessThanOrEqualTo(first.Length + second.Length);
         }
     }
 }

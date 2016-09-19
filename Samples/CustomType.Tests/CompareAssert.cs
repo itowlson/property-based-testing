@@ -8,21 +8,36 @@ namespace CustomType.Tests
 {
     internal static class CompareAssert
     {
-        internal static void LessThanOrEqual<T>(T expectedBound, T actual)
+        internal static CompareAssertImpl<T> Assert<T>(T actual)
             where T : IComparable<T>
         {
-            if (actual.CompareTo(expectedBound) > 0)
-            {
-                throw new CompareAssertException($"Expected value <= {expectedBound}, got {actual}");
-            }
+            return new CompareAssertImpl<T>(actual);
         }
 
-        internal static void GreaterThanOrEqual<T>(T expectedBound, T actual)
+        internal class CompareAssertImpl<T>
             where T : IComparable<T>
         {
-            if (actual.CompareTo(expectedBound) < 0)
+            private readonly T _actual;
+
+            public CompareAssertImpl(T actual)
             {
-                throw new CompareAssertException($"Expected value >= {expectedBound}, got {actual}");
+                _actual = actual;
+            }
+
+            public void IsLessThanOrEqualTo(T expectedBound)
+            {
+                if (_actual.CompareTo(expectedBound) > 0)
+                {
+                    throw new CompareAssertException($"Expected value <= {expectedBound}, got {_actual}");
+                }
+            }
+
+            public void IsGreaterThanOrEqualTo(T expectedBound)
+            {
+                if (_actual.CompareTo(expectedBound) < 0)
+                {
+                    throw new CompareAssertException($"Expected value >= {expectedBound}, got {_actual}");
+                }
             }
         }
 

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maximiser", "Maximiser\Maxi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maximiser.Tests", "Maximiser.Tests\Maximiser.Tests.csproj", "{1F955300-F6F4-4684-96E7-2035AB13E413}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomType", "CustomType\CustomType.csproj", "{344C1F13-3E33-4B9D-953E-52F488C374ED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomType.Tests", "CustomType.Tests\CustomType.Tests.csproj", "{03B4C4F7-0734-4F6D-BA1F-A3E74816C814}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{1F955300-F6F4-4684-96E7-2035AB13E413}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F955300-F6F4-4684-96E7-2035AB13E413}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F955300-F6F4-4684-96E7-2035AB13E413}.Release|Any CPU.Build.0 = Release|Any CPU
+		{344C1F13-3E33-4B9D-953E-52F488C374ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{344C1F13-3E33-4B9D-953E-52F488C374ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{344C1F13-3E33-4B9D-953E-52F488C374ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{344C1F13-3E33-4B9D-953E-52F488C374ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03B4C4F7-0734-4F6D-BA1F-A3E74816C814}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03B4C4F7-0734-4F6D-BA1F-A3E74816C814}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03B4C4F7-0734-4F6D-BA1F-A3E74816C814}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03B4C4F7-0734-4F6D-BA1F-A3E74816C814}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

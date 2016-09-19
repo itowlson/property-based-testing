@@ -68,6 +68,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompareAssert.cs" />
     <Compile Include="Generators.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vector3Tests.cs" />

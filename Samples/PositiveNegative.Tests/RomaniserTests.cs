@@ -58,7 +58,7 @@ namespace PositiveNegative.Tests
             }
         }
 
-        [Property]
+        [Property(MaxTest = 1000)]
         public void InvalidRomanNumberDoesNotParse(InvalidRomanNumber roman)
         {
             var ex = Assert.Throws<ArgumentException>(() => Romaniser.Parse(roman.Value));

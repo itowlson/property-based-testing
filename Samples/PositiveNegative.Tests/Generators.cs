@@ -13,6 +13,22 @@ namespace PositiveNegative.Tests
 
         public static Arbitrary<InvalidRomanNumber> InvalidRoman => Arb.From(InvalidRomanNumberGen, InvalidRomanNumberShrink);
 
+        public static Gen<char> RomanDigitGenerator()
+        {
+            return Gen.Elements(RomanDigits);
+        }
+
+        public static Gen<char[]> RomanDigitSeqGenerator()
+        {
+            return NonEmptyArrayOf(RomanDigitGenerator());
+        }
+
+        public static Gen<T[]> NonEmptyArrayOf<T>(Gen<T> g)
+        {
+            return Gen.ArrayOf(g)
+                      .Where(a => a != null && a.Length > 0);
+        }
+
         private static readonly Gen<RomanConvertibleInt32> RomanConvertibleInt32Gen =
             from i in Arb.Default.Int32()
                                  .Filter(n => n > 0 && n < 4000)
@@ -28,17 +44,19 @@ namespace PositiveNegative.Tests
 
         private static readonly Gen<InvalidRomanNumber> InvalidRomanNumberGen =
             from s in Gen.OneOf(InvalidRomanNumberCharsGen(), InvalidRomanNumberFormatGen())
-            select new InvalidRomanNumber(s.Get);
+            select new InvalidRomanNumber(s);
 
-        private static Gen<NonEmptyString> InvalidRomanNumberCharsGen() =>
-            Arb.Default.NonEmptyString()
-                       .Filter(s => s.Get.Any(ch => !RomanDigits.Contains(Char.ToUpperInvariant(ch))))
-                       .Generator;
+        private static Gen<string> InvalidRomanNumberCharsGen() =>
+            from nes in Arb.Generate<NonEmptyString>()
+            let s = nes.Get
+            where s.Any(ch => !RomanDigits.Contains(Char.ToUpperInvariant(ch)))
+            select s;
 
-        private static Gen<NonEmptyString> InvalidRomanNumberFormatGen() =>
-            Arb.Default.NonEmptyString()
-                       .Filter(s => s.Get.All(ch => RomanDigits.Contains(Char.ToUpperInvariant(ch))) && !IsValidFormat(s.Get))
-                       .Generator;
+        private static Gen<string> InvalidRomanNumberFormatGen() =>
+            from chs in RomanDigitSeqGenerator()
+            let s = new string(chs)
+            where !IsValidFormat(s)
+            select s;
 
         private static IEnumerable<InvalidRomanNumber> InvalidRomanNumberShrink(InvalidRomanNumber value)
         {

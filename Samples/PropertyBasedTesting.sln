@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomType", "CustomType\Cu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomType.Tests", "CustomType.Tests\CustomType.Tests.csproj", "{03B4C4F7-0734-4F6D-BA1F-A3E74816C814}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PositiveNegative", "PositiveNegative\PositiveNegative.csproj", "{3D2957F1-95EA-429B-95DF-4947E4ABFE49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PositiveNegative.Tests", "PositiveNegative.Tests\PositiveNegative.Tests.csproj", "{8A0F82C7-4FF4-4B31-A4D7-DE3ED919B52B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{03B4C4F7-0734-4F6D-BA1F-A3E74816C814}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03B4C4F7-0734-4F6D-BA1F-A3E74816C814}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03B4C4F7-0734-4F6D-BA1F-A3E74816C814}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D2957F1-95EA-429B-95DF-4947E4ABFE49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D2957F1-95EA-429B-95DF-4947E4ABFE49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D2957F1-95EA-429B-95DF-4947E4ABFE49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D2957F1-95EA-429B-95DF-4947E4ABFE49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A0F82C7-4FF4-4B31-A4D7-DE3ED919B52B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A0F82C7-4FF4-4B31-A4D7-DE3ED919B52B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A0F82C7-4FF4-4B31-A4D7-DE3ED919B52B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A0F82C7-4FF4-4B31-A4D7-DE3ED919B52B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

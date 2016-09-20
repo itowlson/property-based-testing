@@ -30,7 +30,7 @@ namespace PositiveNegative.Tests
         //}
 
         [Property]
-        public void RepresentableValuesRoundTripCorrectly_2(RomanConvertibleInt32 genValue)
+        public void RepresentableValuesRoundTripCorrectly_3(RomanConvertibleInt32 genValue)
         {
             int value = genValue.Value;
             Assert.Equal(value, Romaniser.Parse(Romaniser.ToRoman(value)));

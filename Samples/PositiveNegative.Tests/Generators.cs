@@ -13,6 +13,9 @@ namespace PositiveNegative.Tests
 
         public static Arbitrary<InvalidRomanNumber> InvalidRoman => Arb.From(InvalidRomanNumberGen, InvalidRomanNumberShrink);
 
+        public const int RomanNumberLowBound = 1;
+        public const int RomanNumberHighBound = 3999;
+
         public static Gen<char> RomanDigitGenerator()
         {
             return Gen.Elements(RomanDigits);
@@ -30,14 +33,14 @@ namespace PositiveNegative.Tests
         }
 
         private static readonly Gen<RomanConvertibleInt32> RomanConvertibleInt32Gen =
-            from i in Arb.Default.Int32()
-                                 .Filter(n => n > 0 && n < 4000)
-                                 .Generator
+            from i in Gen.Choose(RomanNumberLowBound, RomanNumberHighBound)
             select new RomanConvertibleInt32(i);
 
         private static IEnumerable<RomanConvertibleInt32> RomanConvertibleInt32Shrink(RomanConvertibleInt32 value)
         {
-            return Arb.Shrink(value.Value).Select(n => new RomanConvertibleInt32(n));
+            return Arb.Shrink(value.Value)
+                      .Where(n => n >= RomanNumberLowBound && n <= RomanNumberHighBound)
+                      .Select(n => new RomanConvertibleInt32(n));
         }
 
         private static readonly char[] RomanDigits = new[] { 'I', 'V', 'X', 'L', 'C', 'D', 'M' };
